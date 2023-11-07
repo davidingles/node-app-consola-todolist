@@ -1,0 +1,43 @@
+{
+  "name": "app-consola-todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^9.2.11",
+    "picocolors": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "semi": [
+        "error",
+        "never"
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1
+        },
+        {
+          "maxEOF": 0
+        }
+      ],
+      "indent": [
+        "error",
+        4
+      ]
+    }
+  }
+}
