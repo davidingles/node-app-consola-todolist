@@ -1,4 +1,5 @@
 import Tarea from "./tarea.js";
+import pc from 'picocolors';
 
 
 export default class Tareas {
@@ -33,6 +34,14 @@ export default class Tareas {
   crearTareasFromArray(tareas = []) {
     tareas.forEach(tarea => {
       this._listado[tarea.id] = tarea;
+    });
+  }
+  listarTareas() {
+    this.listadoArr.forEach((tarea, i) => {
+      const idx = `${pc.yellow(i + 1)}`;
+      const { desc, completadoEn } = tarea;
+      const estado = (completadoEn) ? `${pc.green('Completada')}` : `${pc.red('Pendiente')}`;
+      console.log(`${idx} ${desc} :: ${estado}`);
     });
   }
 }

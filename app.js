@@ -8,9 +8,9 @@ const main = async () => {
 	let opt = ''
 	const tareas = new Tareas();
 	const tareasDB = leerDB()
-
-	tareas.crearTareasFromArray(tareasDB)
-
+	if (tareasDB) {
+		tareas.crearTareasFromArray(tareasDB)
+	}
 
 	do {
 
@@ -23,7 +23,8 @@ const main = async () => {
 
 				break;
 			case '2':
-				console.log(tareas.listadoArr)
+				// console.log(tareas.listadoArr)
+				tareas.listarTareas()
 				break;
 			case '3':
 				console.log('Listar completadas')
@@ -35,8 +36,9 @@ const main = async () => {
 				console.log('ids')
 				break;
 			case '6':
-				console.log('Eliminar tarea')
-				break;
+			// const borrar = tareas._listado[tareas.id]
+			// tareas.borrarTarea(borrar)
+			// break;
 			case '0':
 				console.log('Salir')
 				break;
