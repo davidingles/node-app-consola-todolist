@@ -9,37 +9,37 @@ const preguntas = [
     {
         type: 'list',
         name: 'opcion',
-        message: 'Que desea hacer ?',
+        message: `${pc.red('Que desea hacer ?')}`,
         choices:
             [
                 {
                     value: '1',
-                    name: '1.Crear tarea'
+                    name: `${pc.yellow('1. ')}Crear tarea`
                 },
                 {
                     value: '2',
-                    name: '2 Listar tareas'
+                    name: `${pc.yellow('2. ')}Listar tareas`
                 },
                 {
                     value: '3',
-                    name: '3 Tareas completadas'
+                    name: `${pc.yellow('3. ')}Tareas completadas`
                 },
                 {
                     value: '4',
-                    name: '4 Tareas pendientes'
+                    name: `${pc.yellow('4. ')}Tareas pendientes`
                 },
                 {
                     value: '5',
-                    name: '5 Completar tarea(s)'
+                    name: `${pc.yellow('5. ')}Completar tarea(s)`
 
                 },
                 {
                     value: '6',
-                    name: '6 Borrar tarea'
+                    name: `${pc.yellow('6. ')}Borrar tarea`
                 },
                 {
                     value: '0',
-                    name: '0 Salir'
+                    name: `${pc.yellow('0. ')}Salir`
                 },
 
             ]
@@ -47,13 +47,42 @@ const preguntas = [
 ]
 
 const menuInquirer = async () => {
-    //es solo la cabecera============
-    menu()
+    console.clear();
+    menu();
 
-    const opt = await inquirer.prompt(preguntas);
-    return opt
+    const { opcion } = await inquirer.prompt(preguntas);
+    return opcion
 }
 
+export const pausa = async () => {
+    const question = [
+        {
+            type: 'input',
+            name: 'enter',
+            message: `Presione ${pc.yellow('ENTER')} para continuar`
+        }
+    ]
+    console.log('\n')
+    await inquirer.prompt(question)
+}
 
-// ! ojo!!! si cometo el ERROR de poner "menuInquirer()" con los parentesis todo se rompe y no sabré por qué
+export const leerInput = async (message) => {
+    const question = [
+        {
+            type: 'input',
+            name: 'desc',
+            message,
+            validate(value) {
+                if (value.length === 0) {
+                    return 'Por favor ingrese un valor'
+                }
+                return true
+            }
+        }
+    ]
+    const { desc } = await inquirer.prompt(question)
+    return desc
+}
+
+// * ojo!!! si cometo el ERROR de poner "menuInquirer()" con los parentesis todo se rompe y no sabré por qué
 export default menuInquirer;

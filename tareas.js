@@ -1,4 +1,4 @@
-
+import Tarea from "./tarea.js";
 export default class Tareas {
 
   //este getter es para que el listado se convierta en un arreglo (gracias al Object.keys())
@@ -15,6 +15,11 @@ export default class Tareas {
 
     this._listado = {};
 
+  }
+
+  crearTarea(desc = '') {
+    const tarea = new Tarea(desc);
+    this._listado[tarea.id] = tarea;
   }
 
   borrarTarea(id = '') {
