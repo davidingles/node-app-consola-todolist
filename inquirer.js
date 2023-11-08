@@ -108,5 +108,17 @@ export const listadoTareasBorrar = async (tareas = []) => {
     return id
 }
 
+export const confirmar = async (message) => {
+    const question = [
+        {
+            type: 'confirm',
+            name: 'ok',
+            message
+        }
+    ]
+    const { ok } = await inquirer.prompt(question)
+    return ok
+}
+
 // * ojo!!! si cometo el ERROR de poner "menuInquirer()" con los parentesis todo se rompe y no sabré por qué
 export default menuInquirer;

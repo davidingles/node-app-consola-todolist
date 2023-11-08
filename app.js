@@ -1,4 +1,5 @@
-import menuInquirer, { pausa, leerInput, listadoTareasBorrar } from './inquirer.js'
+import pc from 'picocolors'
+import menuInquirer, { pausa, leerInput, listadoTareasBorrar, confirmar } from './inquirer.js'
 import guardarDB, { leerDB } from './guardarArchivo.js'
 import Tareas from './tareas.js'
 
@@ -39,7 +40,11 @@ const main = async () => {
 				break;
 			case '6':
 				const id = await listadoTareasBorrar(tareas.listadoArr)
-				tareas.borrarTarea(id)
+				const ok = await confirmar('¿Está seguro?')
+				if (ok) {
+					tareas.borrarTarea(id)
+					console.log(`${pc.bgRed('Tarea borrada')}`);
+				}
 				break;
 			case '0':
 				console.log('Salir')
