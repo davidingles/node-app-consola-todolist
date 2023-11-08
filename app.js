@@ -1,4 +1,4 @@
-import menuInquirer, { pausa, leerInput } from './inquirer.js'
+import menuInquirer, { pausa, leerInput, listadoTareasBorrar } from './inquirer.js'
 import guardarDB, { leerDB } from './guardarArchivo.js'
 import Tareas from './tareas.js'
 
@@ -27,18 +27,20 @@ const main = async () => {
 				tareas.listarTareas()
 				break;
 			case '3':
-				console.log('Listar completadas')
+				// tareas.listarCompletadas()
+				tareas.listarCompletadasPendientes(true)
 				break;
 			case '4':
-				console.log('Listar pendientes')
+				tareas.listarCompletadasPendientes(false)
+				// tareas.listarPendiendtes()
 				break;
 			case '5':
 				console.log('ids')
 				break;
 			case '6':
-			// const borrar = tareas._listado[tareas.id]
-			// tareas.borrarTarea(borrar)
-			// break;
+				const id = await listadoTareasBorrar(tareas.listadoArr)
+				tareas.borrarTarea(id)
+				break;
 			case '0':
 				console.log('Salir')
 				break;

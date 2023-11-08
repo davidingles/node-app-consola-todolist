@@ -84,5 +84,29 @@ export const leerInput = async (message) => {
     return desc
 }
 
+export const listadoTareasBorrar = async (tareas = []) => {
+    const choices = tareas.map((tarea, i) => {
+        const idx = `${pc.yellow(i + 1)}`;
+        return {
+            value: tarea.id,
+            name: `${idx} ${tarea.desc}`
+        }
+    })
+    choices.unshift({
+        value: '0',
+        name: `${pc.yellow('0.')} Cancelar`
+    })
+    const preguntas = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Borrar',
+            choices
+        }
+    ]
+    const { id } = await inquirer.prompt(preguntas)
+    return id
+}
+
 // * ojo!!! si cometo el ERROR de poner "menuInquirer()" con los parentesis todo se rompe y no sabré por qué
 export default menuInquirer;
