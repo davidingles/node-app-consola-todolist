@@ -1,5 +1,5 @@
 import pc from 'picocolors'
-import menuInquirer, { pausa, leerInput, listadoTareasBorrar, confirmar } from './inquirer.js'
+import menuInquirer, { pausa, leerInput, listadoTareasBorrar, confirmar, completarTareas } from './inquirer.js'
 import guardarDB, { leerDB } from './guardarArchivo.js'
 import Tareas from './tareas.js'
 
@@ -23,20 +23,19 @@ const main = async () => {
 				tareas.crearTarea(desc)
 
 				break;
-			case '2':
-				// console.log(tareas.listadoArr)
+			case '2': // console.log(tareas.listadoArr)
 				tareas.listarTareas()
 				break;
-			case '3':
-				// tareas.listarCompletadas()
+			case '3': // tareas.listarCompletadas()
 				tareas.listarCompletadasPendientes(true)
 				break;
-			case '4':
+			case '4': //listar pendientes o completadas
 				tareas.listarCompletadasPendientes(false)
 				// tareas.listarPendiendtes()
 				break;
-			case '5':
-				console.log('ids')
+			case '5': //completado o pendiente
+				const ids = await completarTareas(tareas.listadoArr)
+				tareas.toggleCompletadas(ids)
 				break;
 			case '6':
 				const id = await listadoTareasBorrar(tareas.listadoArr)

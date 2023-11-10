@@ -1,1 +1,27 @@
-[{"id":"994c5c37-f96b-4830-a25b-400ee39a65de","desc":"estudiar","completadoEn":"completado"},{"id":"22474aff-e215-44f9-b807-f8e5e9ba0961","desc":"Entrenar","completadoEn":null}]
+[
+  {
+    "id": "994c5c37-f96b-4830-a25b-400ee39a65de",
+    "desc": "estudiar",
+    "completadoEn": null
+  },
+  {
+    "id": "22474aff-e215-44f9-b807-f8e5e9ba0961",
+    "desc": "Entrenar",
+    "completadoEn": null
+  },
+  {
+    "id": "031e00bc-34aa-4cfa-b262-40cb8ef1f177",
+    "desc": "conocer a alguine",
+    "completadoEn": "2023-11-10T20:22:20.829Z"
+  },
+  {
+    "id": "ef2435ca-249f-43a6-bc9e-00c1db13b625",
+    "desc": "ir a ver a mis abuelos",
+    "completadoEn": null
+  },
+  {
+    "id": "b7e6d2df-5f65-4347-917e-c7839d8034ac",
+    "desc": "hacer muchas muchas pesas y ponerme muy fuerte",
+    "completadoEn": "2023-11-10T20:22:38.386Z"
+  }
+]

@@ -120,5 +120,27 @@ export const confirmar = async (message) => {
     return ok
 }
 
+export const completarTareas = async (tareas = []) => {
+    const choices = tareas.map((tarea, i) => {
+        const idx = `${pc.yellow(i + 1)}`;
+        return {
+            value: tarea.id,
+            name: `${idx} ${tarea.desc}`,
+            checked: (tarea.completadoEn) ? true : false
+        }
+    })
+
+    const pregunta = [
+        {
+            type: 'checkbox',
+            name: 'ids',
+            message: 'Selecciones',
+            choices
+        }
+    ]
+    const { ids } = await inquirer.prompt(pregunta)
+    return ids
+}
 // * ojo!!! si cometo el ERROR de poner "menuInquirer()" con los parentesis todo se rompe y no sabré por qué
 export default menuInquirer;
+
